@@ -1,16 +1,16 @@
-document.addEventListener('DOMContentLoaded', function() {  /* Событие срабатывает, когда DOM загружен и готов к работе */
-    const slider = document.querySelector('.slider');        /* Получаем элемент слайдера (контейнер слайдов) */
-    const prevBtn = document.querySelector('.prev-btn');     /* Получаем кнопку "Назад" */
-    const nextBtn = document.querySelector('.next-btn');     /* Получаем кнопку "Вперёд" */
-    const slides = document.querySelectorAll('.slide');      /* Получаем все слайды (коллекция элементов) */
-    const pager = document.querySelector('.pager');          /* Получаем контейнер пейджера (индикаторов) */
+document.addEventListener('DOMContentLoaded', function() {  
+    const slider = document.querySelector('.slider');        /* Получение */
+    const prevBtn = document.querySelector('.prev-btn');     
+    const nextBtn = document.querySelector('.next-btn');     
+    const slides = document.querySelectorAll('.slide');      
+    const pager = document.querySelector('.pager');          /* Получаю индикатор */
 
     let currentSlide = 0;                                   /* Текущий слайд (начинаем с 0 — первый слайд) */
     const slideWidth = slides[0].offsetWidth;               /* Ширина одного слайда (берём ширину первого слайда) */
 
     // Создание пейджера
     slides.forEach((slide, index) => {                      /* Проходим по всем слайдам */
-        const span = document.createElement('span');         /* Создаём элемент span для индикатора */
+        const span = document.createElement('span');         /* Создаю элемент span для индикатора */
         span.textContent = index + 1;                       /* Текст индикатора — номер слайда (начинаем с 1) */
         span.addEventListener('click', () => goToSlide(index)); /* При клике на индикатор переходим к соответствующему слайду */
         pager.appendChild(span);                            /* Добавляем индикатор в контейнер пейджера */
@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', function() {  /* Событие с
         updateSlider();                                  // Обновляем позицию слайдера
     });
 
-    // Прокрутка вправо
+    // Прокрутка вправо, идентично вверху
     nextBtn.addEventListener('click', () => {
-        currentSlide++;                                   // Увеличиваем номер текущего слайда
-        if (currentSlide >= slides.length) currentSlide = 0;  // Если вышли за пределы вправо, переходим к первому слайду
-        updateSlider();                                  // Обновляем позицию слайдера
+        currentSlide++;                                   
+        if (currentSlide >= slides.length) currentSlide = 0;  
+        updateSlider();                                  
     });
 
     // Переход к слайду
